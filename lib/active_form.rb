@@ -30,6 +30,10 @@ class ActiveForm
     true
   end
 
+  def id
+    nil
+  end
+
   def raise_not_implemented_error(*params)
     self.class.raise_not_implemented_error(params)
   end

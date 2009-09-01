@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name    = 'active_form'
-  s.version = '1.0.2'
+  s.version = '1.0.3'
   s.date    = '2009-03-16'
-  
+
   s.summary = "Validations for Non Active Record Models"
   
   s.authors  = ['Christoph Schiessl']

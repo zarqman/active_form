@@ -1,9 +1,20 @@
+require 'active_support/inflector'
+require 'active_support/core_ext/hash/except'
+require 'active_model'
+
 class ActiveForm
+  include ActiveModel::Validations
+
+  def to_model; self; end
+  def persisted?; false; end
+  def to_key; nil; end
+  def to_param; nil; end
+
   def initialize(attributes = nil)
     # Mass Assignment implementation
     if attributes
-      attributes.each do |key, value| 
-        self[key] = value 
+      attributes.each do |key, value|
+        self[key] = value
       end
     end
     yield self if block_given?
@@ -42,25 +53,18 @@ class ActiveForm
   alias save! raise_not_implemented_error
   alias update_attribute raise_not_implemented_error
   alias update_attributes raise_not_implemented_error
-
-  include ActiveRecord::Validations
-  
   alias save valid?
   alias save! raise_not_implemented_error
   alias update_attribute raise_not_implemented_error
   alias update_attributes raise_not_implemented_error
   
   class <<self
-    def self_and_descendants_from_active_record
-      [self]
-    end
-
     def human_name(*args)
-      name.humanize
+      name.to_s.humanize
     end
 
-    def human_attribute_name(attribute_key_name)
-      attribute_key_name.humanize
+    def human_attribute_name(attribute_key_name, options={})
+      attribute_key_name.to_s.humanize
     end
 
     def raise_not_implemented_error(*params)

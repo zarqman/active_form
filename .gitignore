@@ -1,5 +1,2 @@
-.DS_Store
-*.swp
-*/.swp
-**/*/.swp
 Gemfile.lock
+*.gem

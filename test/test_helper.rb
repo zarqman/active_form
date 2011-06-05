@@ -7,10 +7,10 @@ require File.join(plugin_root, 'lib/active_form')
 
 class Test::Unit::TestCase
   def assert_valid(model, message = nil)
-    assert model.valid?, message
+    assert model.valid?, message || "should be valid"
   end
 
   def assert_invalid(model, message = nil)
-    assert !model.valid?, message
+    assert !model.valid?, message || "should be invalid"
   end
 end

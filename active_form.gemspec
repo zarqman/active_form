@@ -1,18 +1,37 @@
 Gem::Specification.new do |s|
-  s.name    = 'active_form'
-  s.version = '1.0.3'
-  s.date    = '2009-03-16'
+  s.name        = 'active_form'
+  s.version     = '1.0.3'
+  s.platform    = Gem::Platform::RUBY
+  s.summary     = 'Validations for Non Active Record Models.'
+  s.description = 'Rails >= 3.0.0 is required.'
 
-  s.summary = "Validations for Non Active Record Models"
+  s.required_ruby_version     = '>= 1.8.7'
+  s.required_rubygems_version = ">= 1.3.6"
 
-  s.authors  = ['Christoph Schiessl']
-  s.email    = 'c.schiessl@gmx.net'
+  s.author   = 'Christoph Schiessl'
+  s.email    = 'chs@proactive.cc'
   s.homepage = 'http://github.com/cs/active_form'
 
-  s.has_rdoc = false
-  s.add_dependency 'activemodel', ['>= 3.0.0.rc']
-  s.add_dependency 'activesupport', ['>= 3.0.0.rc']
+  s.require_paths = ["lib"]
 
-  s.files = %w(init.rb lib lib/active_form.rb MIT-LICENCE Rakefile test)
-  s.test_files = %w(test/test_helper.rb test/basic_test.rb)
+  s.files = [
+    "README.md",
+    "LICENCE",
+    "Rakefile",
+    "Gemfile",
+    "lib/active_form.rb",
+    "active_form.gemspec",
+    "test/test_helper.rb",
+    "test/basic_test.rb"
+  ]
+
+  s.test_files = [
+    "test/test_helper.rb",
+    "test/basic_test.rb"
+  ]
+
+  s.add_dependency('bundler', '>= 1.0')
+  s.add_dependency('activemodel', '>= 3.0.0')
+  s.add_dependency('activesupport', '>= 3.0.0')
+  s.add_development_dependency('rake', '>= 0.9')
 end

@@ -2,26 +2,26 @@
 
 ## Model
 
-		class ContactForm < ActiveForm
-		  attr_accessor :name, :institution, :email, :contact_number, :address, :purpose
-		  validates_presence_of :name, :email, :address, :purpose
-		  validates_length_of :email, :within => 6..100, :unless => Proc.new {|m| m.email.blank?}
-		end 
+  	class ContactForm < ActiveForm
+  	  attr_accessor :name, :institution, :email, :contact_number, :address, :purpose
+  	  validates_presence_of :name, :email, :address, :purpose
+  	  validates_length_of :email, :within => 6..100, :unless => Proc.new {|m| m.email.blank?}
+    end 
 
 ## Controller
 
-		def show
-		  @contact_form = ContactForm.new
-		end
-
-		def send_contact_form
-		  @contact_form = ContactForm.new params[:contact_form]
-			if @contact_form.valid?
-				#...
-			else
-				render :action => "show"
-			end
-		end
+  	def show
+  	  @contact_form = ContactForm.new
+  	end
+    
+  	def send_contact_form
+  	  @contact_form = ContactForm.new params[:contact_form]
+  		if @contact_form.valid?
+  			#...
+  		else
+  			render :action => "show"
+  		end
+  	end
 
 ## Form
 

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'active_form'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.platform    = Gem::Platform::RUBY
   s.summary     = 'Validations for Non Active Record Models.'
   s.description = 'Rails >= 3.0.0 is required.'

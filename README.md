@@ -1,5 +1,7 @@
 # active_form
 
+The `master` branch is compatible with Rails 3.0 only. If you want to use `active_form` with Rails 2.3 please take a look at the `rails-2-3` branch.
+
 ## Model
 
   	class ContactForm < ActiveForm

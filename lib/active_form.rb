@@ -4,6 +4,8 @@ require 'active_model'
 
 class ActiveForm
   include ActiveModel::Validations
+  include ActiveModel::Conversion
+  extend  ActiveModel::Naming
 
   def to_model; self; end
   def persisted?; false; end
@@ -59,14 +61,6 @@ class ActiveForm
   alias update_attributes raise_not_implemented_error
   
   class <<self
-    def human_name(*args)
-      name.to_s.humanize
-    end
-
-    def human_attribute_name(attribute_key_name, options={})
-      attribute_key_name.to_s.humanize
-    end
-
     def raise_not_implemented_error(*params)
       raise NotImplementedError
     end

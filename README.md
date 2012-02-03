@@ -1,6 +1,6 @@
 # active_form
 
-The `master` branch is compatible with Rails 3.0 only. If you want to use `active_form` with Rails 2.3 please take a look at the `rails-2-3` branch.
+This gem is for Rails 3.x.x only! 
 
 ## Model
 
@@ -52,4 +52,7 @@ The `master` branch is compatible with Rails 3.0 only. If you want to use `activ
 
 ## Copyright
 
+This gem was changed by TnT Web Solutions 2012 to support i18n translation for attributes.
+
+Original:
 Copyright ©2011 [Christoph Schiessl](http://github.com/cs). See LICENSE for details.

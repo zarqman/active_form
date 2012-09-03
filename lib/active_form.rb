@@ -5,12 +5,9 @@ require 'active_model'
 class ActiveForm
   include ActiveModel::Validations
   include ActiveModel::Conversion
-  extend  ActiveModel::Naming
+  extend  ActiveModel::Translation
 
-  def to_model; self; end
   def persisted?; false; end
-  def to_key; nil; end
-  def to_param; nil; end
 
   def initialize(attributes = nil)
     # Mass Assignment implementation

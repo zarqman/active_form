@@ -6,6 +6,7 @@ class ActiveForm
   include ActiveModel::Validations
   include ActiveModel::Conversion
   extend  ActiveModel::Translation
+  include ActiveModel::Validations::Callbacks
 
   def persisted?; false; end
 

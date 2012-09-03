@@ -27,6 +27,16 @@ class ActiveForm
   def []=(key, value)
     instance_variable_set("@#{key}", value)
   end
+
+  def attributes
+    h = {}.with_indifferent_access
+    instance_variable_names.map do |iv|
+      unless ['@validation_context', '@errors'].include? iv
+        h[iv.sub('@','')] = instance_variable_get iv
+      end
+    end
+    h
+  end
   
   def method_missing(method_id, *params)
     # Implement _before_type_cast accessors

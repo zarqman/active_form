@@ -14,7 +14,7 @@ class ActiveForm
     # Mass Assignment implementation
     if attributes
       attributes.each do |key, value|
-        self[key] = value
+        self.public_send("#{key}=", value)
       end
     end
     yield self if block_given?
@@ -53,6 +53,12 @@ class ActiveForm
 
   def id
     nil
+  end
+
+  if defined?(Rails)
+    def logger
+      Rails.logger
+    end
   end
 
   def raise_not_implemented_error(*params)
